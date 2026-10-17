@@ -29,6 +29,9 @@ class Pokemon:
     def __init__(self, pokemon_trainer):
         self.pokemon_trainer = pokemon_trainer
         self.pokemon_number = randint(1, 1000)
+        self.hp = randint(200, 400)
+        self.power = randint(30,60)
+
 
         rarity_names = list(self.RARITIES.keys())
         rarity_weights = [
@@ -86,7 +89,9 @@ class Pokemon:
         result = (
             f"Ваш покемон: {self.name}\n"
             f"Редкость: {self.rarity}\n"
-            f"Множитель бонуса: x{self.bonus}"
+            f"Множитель бонуса: x{self.bonus}\n"
+            f"Здоровье: {self.hp}\n"
+            f"Сила: {self.power}\n"
         )
 
         if self.rarity == "Легендарный":
@@ -103,3 +108,27 @@ class Pokemon:
 
     def show_img(self):
         return self.img
+
+    def attack(self, enemy):
+        if isinstance(enemy, Wizard): # Проверка на то, что enemy является типом данных Wizard (является экземпляром класса Волшебник)
+            num = randint(1,5)
+            if num == 1:
+                    return "Покемон-волшебник применил щит в сражении"
+        if enemy.hp > self.power:
+            enemy.hp -= self.power
+            return f"Сражение @{self.pokemon_trainer} с @{enemy.pokemon_trainer}"
+        else:
+            enemy.hp = 0
+            return f"Победа @{self.pokemon_trainer} над @{enemy.pokemon_trainer}! "
+
+class Wizard(Pokemon):
+    pass
+
+class Fighter(Pokemon):
+    def attack(self, enemy):
+        add_damage = randint(5, 15)
+        self.power += add_damage
+        print(super())
+        result = super().attack(enemy)
+        self.power -= add_damage
+        return result + f"\nБоец применил супер-атаку силой: {add_damage}"

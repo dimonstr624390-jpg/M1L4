@@ -1,6 +1,7 @@
 import telebot
 import random
 from config import token
+from telebot import types
 
 from logic import Pokemon, Wizard, Fighter
 
@@ -33,7 +34,15 @@ def info(message):
     else:
         bot.reply_to(message, "У тебя ещё нет покемона. Создай его командой /go")
 
-
+@bot.message_handler(commands=['feed'])
+def feed(message):
+    username = message.from_user.username
+    if username in Pokemon.pokemons:
+        pok = Pokemon.pokemons[username]
+        bot.reply_to(message, pok.feed())
+    else:
+        bot.reply_to(message, "У тебя ещё нет покемона. Создай его командой /go")
+            
 @bot.message_handler(commands=["attack"])
 def attack(message):
     if message.reply_to_message:
@@ -46,6 +55,7 @@ def attack(message):
             bot.reply_to(message, "Убедитесь, что у обоих игроков созданы покемоны.")
     else:
         bot.reply_to(message, "Нужно отправить команду ответом на сообщение")
+
 
 
 bot.infinity_polling(none_stop=True)

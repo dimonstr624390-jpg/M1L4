@@ -12,15 +12,19 @@ PvP-сражения между игроками (команда отправл�
 ## Команды бота
 ### Команда	Описание
 /go	Создать своего покемона (только один на игрока)
+
 <img width="328" height="212" alt="Без названия (2)" src="https://github.com/user-attachments/assets/01b1d177-6851-417a-8747-63b16e19bc19" />
 
 /info	Показать информацию о своём покемоне: имя, редкость, здоровье, силу, картинку
+
 <img width="172" height="214" alt="Без названия (5)" src="https://github.com/user-attachments/assets/98223a51-4869-40d8-9a62-f86cedec1ebb" />
 
 /feed	Покормить покемона (+здоровье). Кормить можно не чаще, чем раз в 20 часов
+
 <img width="328" height="212" alt="Без названия (4)" src="https://github.com/user-attachments/assets/50659e77-fae6-4955-819d-e7f12f1250fd" />
 
 /attack	Атаковать покемона другого игрока. Отправляется ответом на сообщение соперника
+
 <img width="328" height="212" alt="Без названия (3)" src="https://github.com/user-attachments/assets/d1a9bb5d-183f-4c2b-aa6f-19edaa59f9fa" />
 
 ## Классы покемонов
